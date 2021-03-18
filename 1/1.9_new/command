@@ -1,0 +1,2 @@
+sudo docker volume create my-vol
+sudo docker run -d --mount source=my-vol,target=/usr/src/app devopsdockeruh/simple-web-service

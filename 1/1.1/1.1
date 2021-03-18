@@ -1,0 +1,13 @@
+sudo docker container run nginx
+sudo docker container run nginx
+sudo docker container run nginx
+sudo docker container ls
+sudo docker container stop 58
+sudo docker container stop 2a
+sudo docker ps -a
+14:19 $ sudo docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                          PORTS               NAMES
+58b992498dce        nginx               "/docker-entrypoint.…"   58 seconds ago       Exited (0) 29 seconds ago                           confident_wilbur
+02cc1ee9232c        nginx               "/docker-entrypoint.…"   About a minute ago   Up 58 seconds                   80/tcp              gallant_cohen
+2a5de4ea3b7e        nginx               "/docker-entrypoint.…"   About a minute ago   Exited (0) 23 seconds ago                           awesome_sutherland
+
