@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    web-service:
+        image: devopsdockeruh/simple-web-service
+        build: .
+        volumes: 
+          - daata:/usr/src/app
+volumes:
+  daata:
+    external: true  
