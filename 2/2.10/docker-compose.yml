@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+  backend:
+    image: backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DATABASE=postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+  frontend:
+    image: frontend
+    ports:
+      - 5000:5000
+  redis:
+    image: redis
+  db:
+    image: postgres:13.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+    container_name: postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginxi:/etc/nginx
+
+    
+
+

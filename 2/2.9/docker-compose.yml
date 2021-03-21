@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  backend:
+    image: backend
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DATABASE=postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+  frontend:
+    image: frontend
+    ports:
+      - 5000:5000
+  redis:
+    image: redis
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+    volumes:
+      - uusi:/var/lib/postgresql/data
+
+volumes:
+  uusi:
+    external: true      
+
+
+
