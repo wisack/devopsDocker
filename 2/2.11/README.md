@@ -9,3 +9,4 @@ Used tools so far:
 * TimescaleDB
 
 
+https://github.com/smaddis/smad-deploy-azure
